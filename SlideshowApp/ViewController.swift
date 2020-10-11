@@ -88,6 +88,13 @@ class ViewController: UIViewController {
         // 遷移先のKakudaiViewControllerで宣言している  に値を代入して渡す
         kakudaiViewController.x = pic[currentIndexNo]
     }
+    @IBAction func kakudai(_ sender: Any) {
+        self.timer.invalidate()
+        self.timer = nil
+        saisei.setTitle("再生" , for: .normal)
+        nextbutton.isEnabled = true // ボタン有効
+        backbutton.isEnabled = true // ボタン有効
+    }
     
     @IBAction func unwind(_ segue: UIStoryboardSegue) {
     }
