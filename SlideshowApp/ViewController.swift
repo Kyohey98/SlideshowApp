@@ -81,7 +81,7 @@ class ViewController: UIViewController {
         setImaeges()
     }
     
-   
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // segueから遷移先のKakudaiViewControllerを取得する
         let kakudaiViewController:KakudaiViewController = segue.destination as! KakudaiViewController
@@ -89,14 +89,15 @@ class ViewController: UIViewController {
         kakudaiViewController.x = pic[currentIndexNo]
     }
     @IBAction func kakudai(_ sender: Any) {
-        self.timer.invalidate()
-        self.timer = nil
-        saisei.setTitle("再生" , for: .normal)
-        nextbutton.isEnabled = true // ボタン有効
-        backbutton.isEnabled = true // ボタン有効
+        if self.timer != nil {
+            self.timer.invalidate()
+            self.timer = nil
+            saisei.setTitle("再生" , for: .normal)
+            nextbutton.isEnabled = true // ボタン有効
+            backbutton.isEnabled = true // ボタン有効
+        }else if self.timer == nil {
+        }
     }
-    
     @IBAction func unwind(_ segue: UIStoryboardSegue) {
     }
-    
 }
